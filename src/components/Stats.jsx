@@ -45,8 +45,11 @@ const Stats = () => {
                 left: '50%',
                 transform: 'translateX(-50%)',
                 display: 'flex',
+                flexWrap: 'wrap',
                 gap: '1rem',
                 zIndex: 10,
+                justifyContent: 'center',
+                maxWidth: '90%',
             }}
         >
             {stats.map((stat, index) => {
@@ -64,6 +67,7 @@ const Stats = () => {
                             alignItems: 'center',
                             gap: '0.75rem',
                             minWidth: '140px',
+                            flex: '0 1 auto',
                         }}
                     >
                         <Icon size={24} style={{ opacity: 0.7 }} />

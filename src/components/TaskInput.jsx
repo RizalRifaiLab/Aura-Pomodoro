@@ -37,7 +37,8 @@ const TaskInput = () => {
                     left: '50%',
                     transform: 'translateX(-50%)',
                     zIndex: 10,
-                    width: '90%',
+                    width: 'calc(100% - 500px)', // Leave space for logo (300px) and settings (200px)
+                    minWidth: '300px',
                     maxWidth: '600px',
                 }}
             >
