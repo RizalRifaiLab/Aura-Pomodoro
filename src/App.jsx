@@ -24,87 +24,137 @@ function App() {
       {/* Animated Background */}
       <AuraBackground />
 
-      {/* Task Input */}
-      <TaskInput />
-
-      {/* Main Content */}
+      {/* Main App Container */}
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: 'grid',
+          gridTemplateRows: 'auto 1fr auto',
+          gridTemplateColumns: '1fr',
           minHeight: '100vh',
-          padding: '2rem',
+          width: '100%',
           position: 'relative',
           zIndex: 1,
+          gap: '1rem',
+          padding: '1rem',
+          boxSizing: 'border-box',
         }}
       >
-        <Timer />
-        <Controls />
-      </div>
-
-      {/* Statistics */}
-      <Stats />
-
-      {/* Logo and Branding - Top Left */}
-      <div
-        style={{
-          position: 'fixed',
-          top: '2rem',
-          left: '2rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          padding: '0.75rem 1.25rem',
-          zIndex: 10,
-        }}
-        className="glass"
-      >
-        <img
-          src="/logo.svg"
-          alt="Aura-Pomodoro Logo"
+        {/* Header Section */}
+        <header
           style={{
-            width: '32px',
-            height: '32px',
-          }}
-        />
-        <span
-          style={{
-            fontSize: '1.125rem',
-            fontWeight: 600,
-            fontFamily: 'var(--font-display)',
-            background: 'linear-gradient(135deg, #8B5CF6, #6366F1)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            letterSpacing: '0.02em',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            gap: '1rem',
+            width: '100%',
+            maxWidth: '1400px',
+            margin: '0 auto',
+            padding: '1rem',
+            position: 'relative',
+            zIndex: 10,
           }}
         >
-          Aura-Pomodoro
-        </span>
-      </div>
+          {/* Logo and Branding */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              padding: '0.75rem 1.25rem',
+              minWidth: 'fit-content',
+            }}
+            className="glass"
+          >
+            <img
+              src="/logo.svg"
+              alt="Aura-Pomodoro Logo"
+              style={{
+                width: '32px',
+                height: '32px',
+                flexShrink: 0,
+              }}
+            />
+            <span
+              style={{
+                fontSize: 'clamp(0.875rem, 2vw, 1.125rem)',
+                fontWeight: 600,
+                fontFamily: 'var(--font-display)',
+                background: 'linear-gradient(135deg, #8B5CF6, #6366F1)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                letterSpacing: '0.02em',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Aura-Pomodoro
+            </span>
+          </div>
 
-      {/* Settings Button - Top Right */}
-      <button
-        onClick={() => setShowSettings(true)}
-        className="glass-button"
-        style={{
-          position: 'fixed',
-          top: '2rem',
-          right: '2rem',
-          width: '48px',
-          height: '48px',
-          padding: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 10,
-        }}
-        aria-label="Open settings"
-      >
-        <SettingsIcon size={24} />
-      </button>
+          {/* Settings Button */}
+          <button
+            onClick={() => setShowSettings(true)}
+            className="glass-button"
+            style={{
+              width: '48px',
+              height: '48px',
+              padding: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+            }}
+            aria-label="Open settings"
+          >
+            <SettingsIcon size={24} />
+          </button>
+        </header>
+
+        {/* Main Content Section */}
+        <main
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '2rem',
+            width: '100%',
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '1rem',
+            position: 'relative',
+          }}
+        >
+          {/* Task Input */}
+          <div style={{ width: '100%', maxWidth: '600px' }}>
+            <TaskInput />
+          </div>
+
+          {/* Timer */}
+          <div style={{ width: '100%', maxWidth: '500px' }}>
+            <Timer />
+          </div>
+
+          {/* Controls */}
+          <div style={{ width: '100%', maxWidth: '400px' }}>
+            <Controls />
+          </div>
+        </main>
+
+        {/* Footer Section - Stats */}
+        <footer
+          style={{
+            width: '100%',
+            maxWidth: '1400px',
+            margin: '0 auto',
+            padding: '1rem',
+            position: 'relative',
+            zIndex: 10,
+          }}
+        >
+          <Stats />
+        </footer>
+      </div>
 
       {/* Settings Panel */}
       <Settings isOpen={showSettings} onClose={() => setShowSettings(false)} />

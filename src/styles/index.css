@@ -1,9 +1,6 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
-/* Animations Import */
-@import './animations.css';
-
 /* CSS Custom Properties */
 :root {
   /* Colors - Focus Phase (Purple) */
@@ -152,7 +149,6 @@ h6 {
   color: white;
 }
 
-
 /* Focus Styles */
 button:focus-visible,
 input:focus-visible {
@@ -160,40 +156,5 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-
-  /* Adjust spacing on smaller screens */
-  :root {
-    --spacing-xs: 0.4rem;
-    --spacing-sm: 0.8rem;
-    --spacing-md: 1.2rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-
-  /* Mobile adjustments */
-  body {
-    font-size: 14px;
-  }
-
-  .glass {
-    border-radius: 16px;
-  }
-
-  .glass-button {
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-
-  /* Small mobile adjustments */
-  .glass {
-    border-radius: 12px;
-  }
-}
+/* Animations Import */
+@import './animations.css';
