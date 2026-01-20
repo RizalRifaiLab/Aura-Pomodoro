@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Optimize chunk splitting for better caching
+    // Optimize chunk splitting for better caching and faster loading
     rollupOptions: {
       output: {
         manualChunks: {
@@ -13,10 +13,15 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom'],
           'motion-vendor': ['framer-motion'],
           'zustand-vendor': ['zustand'],
+          'icons-vendor': ['lucide-react'], // Heavy icon library
         },
       },
     },
+    // Minification options (using esbuild for better performance)
+    minify: 'esbuild',
     // Reduce chunk size warnings threshold
     chunkSizeWarningLimit: 1000,
+    // Enable CSS code splitting
+    cssCodeSplit: true,
   },
 })
