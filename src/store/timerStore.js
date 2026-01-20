@@ -17,6 +17,7 @@ const useTimerStore = create((set, get) => ({
     sessionsCompleted: 0,
     totalFocusTime: 0, // in seconds
     currentTask: '',
+    isTaskLocked: false, // New: track if task is locked
 
     // Actions
     start: () => {
@@ -113,6 +114,23 @@ const useTimerStore = create((set, get) => ({
 
     setCurrentTask: (task) => {
         set({ currentTask: task });
+    },
+
+    lockTask: () => {
+        set({ isTaskLocked: true });
+    },
+
+    unlockTask: () => {
+        set({ isTaskLocked: false });
+    },
+
+    deleteTask: () => {
+        set({
+            currentTask: '',
+            isTaskLocked: false,
+            isRunning: false,
+            isPaused: false
+        });
     },
 
     // Getters
